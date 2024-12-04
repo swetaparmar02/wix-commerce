@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 const ids = {
   LAYOUT: {
     HEADER: 'page.header',
@@ -21,7 +22,9 @@ const ids = {
   },
   SHOP_PAGE: {
     HEADER: 'shop.header',
+    HEART_ICON : 'shop.favrite',
   },
+
   PRODUCT_LIST: {
     CONTAINER: 'product-list.container',
   },

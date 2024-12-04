@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { getWixClient } from '@app/hooks/useWixClientServer';
 import { products } from '@wix/stores';
 import { Shop } from '@app/components/Shop/Shop';

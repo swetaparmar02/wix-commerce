@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import './footer.css';
 import ScrollIntoView from '@app/components/ScrollIntoView/ScrollIntoView';
 import testIds from '@app/utils/test-ids';
@@ -10,7 +11,7 @@ const Footer = () => (
     <ScrollIntoView hashName="#contact" />
     <div className="bg-black text-white text-center py-6">
       <h2 className="text-2xl sm:text-4xl font-bold">
-        FOR BOOKING REQUIREMENTS
+        FOR FOODING REQUIREMENTS
       </h2>
       <p className="mt-10 text-xs sm:text-base">
         INFO@MYSITE.COM | PHONE: 123-456-7890

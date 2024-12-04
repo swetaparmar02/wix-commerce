@@ -108,3 +108,40 @@ input::-webkit-inner-spin-button {
 input[type='number'] {
   -moz-appearance: textfield;
 }
+
+
+.sale-ribbon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: #ef4444; /* Tailwind's red-500 */
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem; /* Tailwind's text-xs */
+  border-radius: 0.125rem; /* Small rounded corners */
+}
+
+
+.sale-ribbon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 0.25rem 0.25rem 0 0; /* Create rounded corner */
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%); /* Diagonal cut */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: scale(0.8);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.sale-ribbon:hover {
+  transform: scale(1);
+  opacity: 1;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,21 +1,36 @@
+/* eslint-disable prettier/prettier */
+
+"use client"
+import React, { useState } from 'react';
 import { products } from '@wix/stores';
 import testIds from '@app/utils/test-ids';
 import { WixMediaImage } from '@app/components/Image/WixMediaImage';
 
 export function Shop({ items }: { items: products.Product[] }) {
+  // State to manage favorite products
+  const [favorites, setFavorites] = useState<Record<string, boolean>>({});
+
+  const toggleFavorite = (productId: string) => {
+    setFavorites((prev) => ({
+      ...prev,
+      [productId]: !prev[productId], // Toggle favorite state
+    }));
+  };
+
   return (
     <div className="mx-auto">
       <div
         className="bg-black text-custom-1 text-center py-4 sm:py-10 sm:py-20 h-[450px] sm:h-[520px]"
         data-testid={testIds.SHOP_PAGE.HEADER}
       >
-        <h1 className="uppercase text-3xl sm:text-6xl">Merch</h1>
+        <h1 className="uppercase text-3xl sm:text-6xl">Food list</h1>
         <p className="text-sm sm:text-base mx-auto px-8 sm:max-w-[50%] my-10">
           I’m a paragraph. I’m a great space to write about what makes the
           products special and explain how customers can benefit from these
           items.
         </p>
       </div>
+
       {items.length ? (
         <div
           className="full-w overflow-hidden mx-auto text-center mt-[-200px] sm:mt-[-130px] px-10"
@@ -41,28 +56,63 @@ export function Shop({ items }: { items: products.Product[] }) {
                         item.media?.mainMedia?.image?.altText || 'main image'
                       }
                     />
+                    {/* Ribbon */}
+                    {item.ribbon && (
+                      <div className="absolute top-0 left-0 bg-red-500 text-white px-2 py-1 text-xs uppercase ribbon ribbon-top-right sale-ribbon">
+                        {item.ribbon}
+                      </div>
+                    )}
+
+
+                    {/* Heart Icon */}
+                    <div
+                      className="absolute top-0 right-0 p-2 cursor-pointer"
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent navigation
+                        toggleFavorite(item._id);
+                      }}
+                      data-testid={testIds.SHOP_PAGE.HEART_ICON}
+                    >
+                      <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className={`h-6 w-6 ${
+                        favorites[item._id] ? 'text-red-500' : 'text-gray-500'
+                      }`}
+                      fill={favorites[item._id] ? 'currentColor' : 'none'}
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M4.318 6.318C4.318 3.09 7.09.318 10.318.318c1.886 0 3.574.965 4.682 2.428 1.108-1.463 2.796-2.428 4.682-2.428C16.91.318 19.682 3.09 19.682 6.318c0 2.667-2.248 4.962-5.346 7.6L12 16.23l-2.336-2.312C6.566 11.28 4.318 8.985 4.318 6.318z"
+                      />
+                    </svg>
+                    </div>
+                    
                   </div>
-                  {!item.manageVariants && item.stock?.inStock ? (
-                    <a
-                      data-testid={testIds.PRODUCT_ITEM.BUY_NOW_CTA}
-                      className="btn-main absolute -mt-10 left-0 cursor-pointer"
-                      href={`/api/quick-buy/${item._id}?quantity=1`}
-                    >
-                      Buy Now
-                    </a>
-                  ) : (
-                    <button
-                      className="btn-main absolute -mt-10 left-0 cursor-pointer"
-                      disabled
-                    >
-                      Out of Stock
-                    </button>
-                  )}
+                  {/* Product Info */}
                   <div className="p-2 text-left">
                     <span>{item.name}</span>
                     <br />
                     <span className="text-xs">
-                      {item.price!.formatted!.price}
+                      {item.price?.formatted?.discountedPrice &&
+                      item.price?.formatted?.discountedPrice !==
+                        item.price?.formatted?.price ? (
+                        <>
+                          <span className="line-through text-gray-500">
+                            {item.price.formatted.price}
+                          </span>
+                          <span className="text-red-500 ml-2">
+                            {item.price.formatted.discountedPrice}
+                          </span>
+                        </>
+                      ) : (
+                        <span className="text-gray-700">
+                          {item.price?.formatted?.price}
+                        </span>
+                      )}
                     </span>
                   </div>
                 </a>

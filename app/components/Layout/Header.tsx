@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { CartBag } from '@app/components/CartBag/CartBag';
 import { NavBar } from './NavBar/NavBar';
 import { Login } from '@app/components/Login/Login';
@@ -11,7 +12,7 @@ const Header = () => (
     >
       <div className="flex px-6 sm:px-14 h-header items-center gap-4 sm:gap-8">
         <h2 className="flex-1">
-          <a href="/">TALI$A KIDD</a>
+          <a href="/">Cooking App</a>
         </h2>
         <div>
           <Login />
