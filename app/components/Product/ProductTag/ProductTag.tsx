@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import testIds from '@app/utils/test-ids';
 
 interface ProductTagProps {

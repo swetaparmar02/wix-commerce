@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client';
 import Swatch from '@app/components/Product/Swatch/Swatch';
 import { Option } from '@app/components/Product/Option/Option';

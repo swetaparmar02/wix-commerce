@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { getWixClient } from '@app/hooks//useWixClientServer';
 import { wixEventsV2 as wixEvents } from '@wix/events';
 import { products } from '@wix/stores';

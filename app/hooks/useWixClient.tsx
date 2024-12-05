@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client';
 import { useContext } from 'react';
 import { WixClientContext } from '@app/components/Provider/ClientProvider';

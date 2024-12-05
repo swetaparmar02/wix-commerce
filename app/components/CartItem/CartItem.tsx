@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 'use client';
 import { ChangeEvent, useEffect, useState } from 'react';
 import Link from 'next/link';

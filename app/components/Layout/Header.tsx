@@ -3,6 +3,7 @@ import { CartBag } from '@app/components/CartBag/CartBag';
 import { NavBar } from './NavBar/NavBar';
 import { Login } from '@app/components/Login/Login';
 import testIds from '@app/utils/test-ids';
+import Favorite from '@app/components/Favorite/favorite';
 
 const Header = () => (
   <>
@@ -19,11 +20,16 @@ const Header = () => (
         </div>
 
         <div>
+        <Favorite/>
+        </div>
+
+        <div>
           <CartBag />
         </div>
         <div>
           <NavBar />
         </div>
+        
       </div>
     </header>
   </>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { media as wixMedia } from '@wix/sdk';
 import Image, { ImageProps } from 'next/image';
 import { PLACEHOLDER_IMAGE } from '@app/constants';

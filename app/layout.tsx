@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import './globals.css';
 import Footer from '@app/components/Layout/Footer';
 import Header from '@app/components/Layout/Header';
@@ -5,6 +6,8 @@ import { ClientProvider } from '@app/components/Provider/ClientProvider';
 import { SidebarUI } from '@app/components/Sidebar/SidebarUI';
 import { NotPremium } from '@app/components/NotPremium/NotPremium';
 import { LoginModal } from '@app/components/LoginModal/LoginModal';
+import { WishlistProvider } from "./components/WishlistContext";
+
 
 /**
  * Using force dynamic so changes in business assets (e.g. services) are immediately reflected.
@@ -33,7 +36,7 @@ export default function RootLayout({
           <>
             <ClientProvider>
               <Header />
-              <main className="bg-site min-h-[600px]">{children}</main>
+              <main className="bg-site min-h-[600px]"><WishlistProvider>{children}</WishlistProvider></main>
               <SidebarUI />
               <NotPremium />
               <LoginModal />
