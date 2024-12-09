@@ -4,6 +4,7 @@ import { NavBar } from './NavBar/NavBar';
 import { Login } from '@app/components/Login/Login';
 import testIds from '@app/utils/test-ids';
 import Favorite from '@app/components/Favorite/favorite';
+import Link from 'next/link';
 
 const Header = () => (
   <>
@@ -17,6 +18,14 @@ const Header = () => (
         </h2>
         <div>
           <Login />
+        </div>
+
+        <div>
+          <Link href="../categories">Categories</Link>
+        </div>
+
+        <div>
+          <Link href="../members">Member</Link>
         </div>
 
         <div>
