@@ -21,10 +21,6 @@ const Header = () => (
         </div>
 
         <div>
-          <Link href="../categories">Categories</Link>
-        </div>
-
-        <div>
           <Link href="../members">Member</Link>
         </div>
 

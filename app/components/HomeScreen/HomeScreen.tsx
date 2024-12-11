@@ -276,6 +276,8 @@ export function HomeScreen({
       Categories
     </a>
   </div>
+
+  
 </div>
       
 
